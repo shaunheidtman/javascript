@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+<title>Moving items</title>
+<style>
+#box {
+	width: 200px;
+	height: 200px;
+	border: 1px solid #000;
+	background-color: #F00;
+	position: absolute;
+	left: 25px;
+	top: 25px;
+}
+</style>
+<script>
+var x = 25;
+var y = 25;
+window.onload = function() 
+{
+	document.getElementById("box").onclick = startElement;
+}
+function startElement()	
+{
+	alert ("x = " x);
+	var horizontalId;
+	horizontalId = setInterval(moveBox, 1000);
+	
+}
+	
+function moveBox() 
+{
+	
+	if (x<100)
+	{
+		x+= 5;
+		var left = x + "px";
+		document.getElementById("box").style.left=left;
+		
+		moveBox;
+	}
+	
+	else
+	{
+		clearInterval(horizontalId);
+		moveVertical;
+	}
+}
+function moveVertical() 
+{
+	var verticalId;
+	verticalId = setInterval(moveBoxDown, 1000);
+}
+		
+function moveBoxDown() 
+{
+	if (y < 100)
+	{
+		y+= 5;
+		var top = y + "px"
+		document.getElementById("box").style.top=top;
+		alert ("y = " y);
+		moveBoxDown;
+	}
+	else
+	{
+		clearInterval(verticalId);
+	}
+}
+	
+			
+
+</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
