@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+<title>Let's Play A Game</title>
+<heta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<script type="text/javascript">
+
+window.onload = setTimeout(makeGuess, 1000) ;
+var randomNumber = Math.floor(Math.random() * 100);
+var counter = 0;
+function makeGuess() 
+{
+	var guess;
+	var guess = prompt("I'm thinking of a number between 1 and 100.  Can you guess?", "Enter a number.");
+	if (guess == randomNumber)
+	{
+		alert("Great guess! It took you " + counter + " guesses!");
+	}
+	else if (guess < randomNumber)
+	{
+		alert("Sorry, that's not what number I'm thinking.  You're too low.");
+		counter++;
+		makeGuess();
+	}
+	else if (guess > randomNumber)
+	{
+		alert("Sorry, that's not what number I'm thinking.  You're too high.");
+		counter++;
+		makeGuess();
+	}
+	else
+	{
+		alert("Hey, I said a number between 1 and 100. Stick to the rules tough guy.");
+	}
+}
+</script>
+</head>
+<body>
+</body>
+</html>
